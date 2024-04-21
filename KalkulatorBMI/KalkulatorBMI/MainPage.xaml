@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="KalkulatorBMI.MainPage">
+    <ContentPage.Resources>
+        <Style TargetType="StackLayout" x:Key="StackLayout_Main">
+            <Setter Property="Margin" Value="50"/>
+        </Style>
+        
+        <Style TargetType="StackLayout" x:Key="StackLayout_Gender">
+            <Setter Property="Orientation" Value="Horizontal"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        </Style>
+        <Style TargetType="StackLayout" x:Key="StackLayout_Gender_Items">
+            <Setter Property="VerticalOptions" Value="Center"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style TargetType="StackLayout" x:Key="StackLayout_UnderTitel">
+            <Setter Property="Orientation" Value="Horizontal"/>
+        </Style>
+
+        <Style TargetType="RadioButton" x:Key="RadioButton_Item">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+
+        <Style TargetType="Label" x:Key="Label_Title">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="FontAttributes" Value="Bold"/>
+        </Style>
+        <Style TargetType="Label" x:Key="Label_Prefix">
+            <Setter Property="VerticalOptions" Value="End"/>
+            <Setter Property="FontSize" Value="20"/>
+        </Style>
+        
+        <Style TargetType="Entry" x:Key="Entry_Numeric">
+            <Setter Property="WidthRequest" Value="230"/>
+            <Setter Property="Margin" Value="29,0,0,0"/>
+            <Setter Property="Keyboard" Value="Numeric"/>
+        </Style>
+
+        <Style TargetType="Button" x:Key="Button_Calculate">
+            <Setter Property="HorizontalOptions" Value="Center"/>
+        </Style>
+        
+    </ContentPage.Resources>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Zapisane wyniki" Clicked="TI_GoToSavedData_Clicked"/>
+    </ContentPage.ToolbarItems>
+    <StackLayout Style="{DynamicResource StackLayout_Main}">
+        <Label Text="Płeć: " Style="{DynamicResource Label_Title}"/>
+        <StackLayout Style="{DynamicResource StackLayout_Gender}">
+            <StackLayout Style="{DynamicResource StackLayout_Gender_Items}">
+                <Label Text="Kobieta"/>
+                <RadioButton x:Name="RB_Female" GroupName="gender" Style="{DynamicResource RadioButton_Item}"/>
+            </StackLayout>
+            <StackLayout Style="{DynamicResource StackLayout_Gender_Items}">
+                <Label Text="Mężczyzna"/>
+                <RadioButton x:Name="RB_Male" GroupName="gender" Style="{DynamicResource RadioButton_Item}"/>
+            </StackLayout>
+        </StackLayout>
+        <Label Text="Wysokość" Style="{DynamicResource Label_Title}"/>
+        <StackLayout Style="{DynamicResource StackLayout_UnderTitel}">
+            <Entry x:Name="E_Height" Style="{DynamicResource Entry_Numeric}"/>
+            <Label Text="cm" Style="{DynamicResource Label_Prefix}"/>
+        </StackLayout>
+        <Label Text="Waga" Style="{DynamicResource Label_Title}"/>
+        <StackLayout Style="{DynamicResource StackLayout_UnderTitel}">
+            <Entry x:Name="E_Weight" Style="{DynamicResource Entry_Numeric}"/>
+            <Label Text="kg" Style="{DynamicResource Label_Prefix}"/>
+        </StackLayout>
+        <Button Text="Oblicz" Clicked="Btn_CalculateBMI" Style="{DynamicResource Button_Calculate}"/>
+        <Label x:Name="Lbl_Score" FontSize="30" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+        <Label x:Name="Lbl_Result" FontSize="25" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="Center"/>
+        <Button x:Name="Btn_SaveReslt" Clicked="Btn_SaveReslt_Clicked" Text="ZAPISZ" HorizontalOptions="Center" Margin="0,20,0,0" IsVisible="false" IsEnabled="False"/>
+    </StackLayout>
+
+</ContentPage>
